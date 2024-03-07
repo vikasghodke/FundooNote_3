@@ -1,0 +1,16 @@
+C:\C#\FundooNoteContext\RepoLayer\bin\Debug\netcoreapp3.1\RepoLayer.deps.json
+C:\C#\FundooNoteContext\RepoLayer\bin\Debug\netcoreapp3.1\RepoLayer.runtimeconfig.json
+C:\C#\FundooNoteContext\RepoLayer\bin\Debug\netcoreapp3.1\RepoLayer.runtimeconfig.dev.json
+C:\C#\FundooNoteContext\RepoLayer\bin\Debug\netcoreapp3.1\RepoLayer.dll
+C:\C#\FundooNoteContext\RepoLayer\bin\Debug\netcoreapp3.1\RepoLayer.pdb
+C:\C#\FundooNoteContext\RepoLayer\bin\Debug\netcoreapp3.1\ModelLayer.dll
+C:\C#\FundooNoteContext\RepoLayer\bin\Debug\netcoreapp3.1\ModelLayer.pdb
+C:\C#\FundooNoteContext\RepoLayer\obj\Debug\netcoreapp3.1\RepoLayer.csproj.AssemblyReference.cache
+C:\C#\FundooNoteContext\RepoLayer\obj\Debug\netcoreapp3.1\RepoLayer.GeneratedMSBuildEditorConfig.editorconfig
+C:\C#\FundooNoteContext\RepoLayer\obj\Debug\netcoreapp3.1\RepoLayer.AssemblyInfoInputs.cache
+C:\C#\FundooNoteContext\RepoLayer\obj\Debug\netcoreapp3.1\RepoLayer.AssemblyInfo.cs
+C:\C#\FundooNoteContext\RepoLayer\obj\Debug\netcoreapp3.1\RepoLayer.csproj.CoreCompileInputs.cache
+C:\C#\FundooNoteContext\RepoLayer\obj\Debug\netcoreapp3.1\RepoLayer.csproj.Up2Date
+C:\C#\FundooNoteContext\RepoLayer\obj\Debug\netcoreapp3.1\RepoLayer.dll
+C:\C#\FundooNoteContext\RepoLayer\obj\Debug\netcoreapp3.1\RepoLayer.pdb
+C:\C#\FundooNoteContext\RepoLayer\obj\Debug\netcoreapp3.1\RepoLayer.genruntimeconfig.cache

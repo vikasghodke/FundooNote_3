@@ -1,0 +1,13 @@
+C:\C#\FundooNoteContext\ModelLayer\bin\Debug\netcoreapp3.1\ModelLayer.deps.json
+C:\C#\FundooNoteContext\ModelLayer\bin\Debug\netcoreapp3.1\ModelLayer.runtimeconfig.json
+C:\C#\FundooNoteContext\ModelLayer\bin\Debug\netcoreapp3.1\ModelLayer.runtimeconfig.dev.json
+C:\C#\FundooNoteContext\ModelLayer\bin\Debug\netcoreapp3.1\ModelLayer.dll
+C:\C#\FundooNoteContext\ModelLayer\bin\Debug\netcoreapp3.1\ModelLayer.pdb
+C:\C#\FundooNoteContext\ModelLayer\obj\Debug\netcoreapp3.1\ModelLayer.csproj.AssemblyReference.cache
+C:\C#\FundooNoteContext\ModelLayer\obj\Debug\netcoreapp3.1\ModelLayer.GeneratedMSBuildEditorConfig.editorconfig
+C:\C#\FundooNoteContext\ModelLayer\obj\Debug\netcoreapp3.1\ModelLayer.AssemblyInfoInputs.cache
+C:\C#\FundooNoteContext\ModelLayer\obj\Debug\netcoreapp3.1\ModelLayer.AssemblyInfo.cs
+C:\C#\FundooNoteContext\ModelLayer\obj\Debug\netcoreapp3.1\ModelLayer.csproj.CoreCompileInputs.cache
+C:\C#\FundooNoteContext\ModelLayer\obj\Debug\netcoreapp3.1\ModelLayer.dll
+C:\C#\FundooNoteContext\ModelLayer\obj\Debug\netcoreapp3.1\ModelLayer.pdb
+C:\C#\FundooNoteContext\ModelLayer\obj\Debug\netcoreapp3.1\ModelLayer.genruntimeconfig.cache
