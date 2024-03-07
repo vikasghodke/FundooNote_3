@@ -29,7 +29,7 @@ namespace FundooNoteContext.Controllers
                 return BadRequest(new { Success = false, Message = "something wet wrong" });
             }
         }
-        [HttpGet]
+        /*[HttpGet]
         public IActionResult ViewDetail(string Email, string Password)
         {
             var result=userBL.ViewDetail(Email, Password);
@@ -41,7 +41,23 @@ namespace FundooNoteContext.Controllers
             {
                 return BadRequest(new { Success = false, Message = "something wet wrong" });
             }
+        }*/
+
+        [HttpPost]
+        [Route("Login")]
+        public IActionResult Login(UserLogin userlogin)
+        {
+            var result = userBL.UserLogin(userlogin);
+            if (result != null)
+            {
+                return Ok(new { Success = true, Message = "added sucessfully", Data = result });
+            }
+            else
+            {
+                return BadRequest(new { Success = false, Message = "something wet wrong" });
+            }
         }
-        
+
+
     }
 }

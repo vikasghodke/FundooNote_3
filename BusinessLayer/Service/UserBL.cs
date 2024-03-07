@@ -24,9 +24,14 @@ namespace BusinessLayer.Service
             return userRL.AddUserDetail(userModel);
         }
 
-        public UserEntity ViewDetail(string Email, string Password)
+        /* public UserEntity ViewDetail(string Email, string Password)
+         {
+             return userRL.ViewDetail(Email, Password);
+         }*/
+
+        public string UserLogin(UserLogin userLogin)
         {
-            return userRL.ViewDetail(Email, Password);
+            return userRL.UserLogin(userLogin);
         }
 
 

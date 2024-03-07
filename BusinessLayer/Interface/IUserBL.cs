@@ -10,6 +10,8 @@ namespace BusinessLayer.Interface
     {
         public UserEntity AddUserDetail(UserModel userModel);
 
-        public UserEntity ViewDetail(string Email, string Password);
+        //public UserEntity ViewDetail(string Email, string Password);
+
+        public string UserLogin(UserLogin userLogin);
     }
 }
