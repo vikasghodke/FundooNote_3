@@ -95,11 +95,16 @@ namespace RepoLayer.Service
               signingCredentials: credentials); 
 
             return new JwtSecurityTokenHandler().WriteToken(token);
+        }     
+            
         }
-        }
+
+    }
+
+   
     
 
-}
+
 
 
 

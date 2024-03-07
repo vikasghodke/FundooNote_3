@@ -2,15 +2,17 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RepoLayer.Context;
 
 namespace RepoLayer.Migrations
 {
     [DbContext(typeof(FundoonoteContext1))]
-    partial class FundoonoteContext1ModelSnapshot : ModelSnapshot
+    [Migration("20240304113921_CreatedNoteTable")]
+    partial class CreatedNoteTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -28,6 +30,9 @@ namespace RepoLayer.Migrations
                     b.Property<string>("Color")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("CreatedBy")
+                        .HasColumnType("int");
+
                     b.Property<bool>("IsArchived")
                         .HasColumnType("bit");
 
@@ -37,12 +42,9 @@ namespace RepoLayer.Migrations
                     b.Property<string>("Title")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("UserID")
-                        .HasColumnType("int");
-
                     b.HasKey("NoteId");
 
-                    b.HasIndex("UserID");
+                    b.HasIndex("CreatedBy");
 
                     b.ToTable("Notes");
                 });
@@ -75,7 +77,7 @@ namespace RepoLayer.Migrations
                 {
                     b.HasOne("RepoLayer.Entity.UserEntity", "User")
                         .WithMany()
-                        .HasForeignKey("UserID")
+                        .HasForeignKey("CreatedBy")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

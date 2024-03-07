@@ -17,11 +17,15 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Swashbuckle.AspNetCore" Version="4.0.0" />
-    <PackageReference Include="System.Security.Claims" Version="4.0.0" />
+    <PackageReference Include="System.Security.Claims" Version="4.0.1" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\ModelLayer\ModelLayer.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Notes\" />
   </ItemGroup>
 
 </Project>

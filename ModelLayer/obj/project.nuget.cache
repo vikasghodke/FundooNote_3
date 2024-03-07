@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "cqFoCRG4H5ZJZ/WYsuS6Q9q4ZEvvmwEFfj9RuqbVSYRERjrV3WJhl//f5iIkaPQpjvdpDW6mU4yCJ1Y+5opULg==",
+  "dgSpecHash": "HK3flvqPHYvxLSTv5mVq2djURT5vlxvTSjXWTOtmc9gldO2K03B8sSeUU9MoNbsVuALwdGqGWDk68J0VMkB94Q==",
   "success": true,
   "projectFilePath": "C:\\C#\\FundooNoteContext\\ModelLayer\\ModelLayer.csproj",
   "expectedPackageFiles": [
@@ -178,7 +178,7 @@
     "C:\\Users\\VIKAS GHODKE\\.nuget\\packages\\system.runtime.serialization.json\\4.3.0\\system.runtime.serialization.json.4.3.0.nupkg.sha512",
     "C:\\Users\\VIKAS GHODKE\\.nuget\\packages\\system.runtime.serialization.primitives\\4.3.0\\system.runtime.serialization.primitives.4.3.0.nupkg.sha512",
     "C:\\Users\\VIKAS GHODKE\\.nuget\\packages\\system.security.accesscontrol\\4.5.0\\system.security.accesscontrol.4.5.0.nupkg.sha512",
-    "C:\\Users\\VIKAS GHODKE\\.nuget\\packages\\system.security.claims\\4.0.0\\system.security.claims.4.0.0.nupkg.sha512",
+    "C:\\Users\\VIKAS GHODKE\\.nuget\\packages\\system.security.claims\\4.0.1\\system.security.claims.4.0.1.nupkg.sha512",
     "C:\\Users\\VIKAS GHODKE\\.nuget\\packages\\system.security.cryptography.algorithms\\4.3.0\\system.security.cryptography.algorithms.4.3.0.nupkg.sha512",
     "C:\\Users\\VIKAS GHODKE\\.nuget\\packages\\system.security.cryptography.cng\\4.5.0\\system.security.cryptography.cng.4.5.0.nupkg.sha512",
     "C:\\Users\\VIKAS GHODKE\\.nuget\\packages\\system.security.cryptography.csp\\4.3.0\\system.security.cryptography.csp.4.3.0.nupkg.sha512",
@@ -188,7 +188,7 @@
     "C:\\Users\\VIKAS GHODKE\\.nuget\\packages\\system.security.cryptography.protecteddata\\4.5.0\\system.security.cryptography.protecteddata.4.5.0.nupkg.sha512",
     "C:\\Users\\VIKAS GHODKE\\.nuget\\packages\\system.security.cryptography.x509certificates\\4.3.0\\system.security.cryptography.x509certificates.4.3.0.nupkg.sha512",
     "C:\\Users\\VIKAS GHODKE\\.nuget\\packages\\system.security.permissions\\4.5.0\\system.security.permissions.4.5.0.nupkg.sha512",
-    "C:\\Users\\VIKAS GHODKE\\.nuget\\packages\\system.security.principal\\4.0.0\\system.security.principal.4.0.0.nupkg.sha512",
+    "C:\\Users\\VIKAS GHODKE\\.nuget\\packages\\system.security.principal\\4.0.1\\system.security.principal.4.0.1.nupkg.sha512",
     "C:\\Users\\VIKAS GHODKE\\.nuget\\packages\\system.security.principal.windows\\4.5.0\\system.security.principal.windows.4.5.0.nupkg.sha512",
     "C:\\Users\\VIKAS GHODKE\\.nuget\\packages\\system.security.securestring\\4.3.0\\system.security.securestring.4.3.0.nupkg.sha512",
     "C:\\Users\\VIKAS GHODKE\\.nuget\\packages\\system.text.encoding\\4.3.0\\system.text.encoding.4.3.0.nupkg.sha512",
@@ -205,26 +205,5 @@
     "C:\\Users\\VIKAS GHODKE\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
     "C:\\Users\\VIKAS GHODKE\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'System.Security.Claims 4.0.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.",
-      "libraryId": "System.Security.Claims",
-      "targetGraphs": [
-        ".NETCoreApp,Version=v3.1"
-      ]
-    },
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'System.Security.Principal 4.0.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.",
-      "libraryId": "System.Security.Principal",
-      "targetGraphs": [
-        ".NETCoreApp,Version=v3.1"
-      ]
-    }
-  ]
+  "logs": []
 }

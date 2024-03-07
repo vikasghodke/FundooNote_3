@@ -29,16 +29,27 @@ namespace RepoLayer.JwtToken
 
             var claims = new[]
             {
+<<<<<<< HEAD
              new Claim(ClaimTypes.GivenName, user.FirstName ),
              new Claim(ClaimTypes.GivenName, user.LastName ),
              new Claim(ClaimTypes.Email, user.Email )
+=======
+                new Claim(ClaimTypes.Email, user.Email),
+                new Claim(ClaimTypes.NameIdentifier, user.id.ToString())
+
+>>>>>>> UC2_CRUD,Note
 
 
          };
 
             var token = new JwtSecurityToken(_config["Jwt:Issuer"],
               _config["Jwt:Issuer"],
+<<<<<<< HEAD
               null,
+=======
+              claims
+              ,
+>>>>>>> UC2_CRUD,Note
               expires: DateTime.Now.AddMinutes(15),
               signingCredentials: credentials);
 

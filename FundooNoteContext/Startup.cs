@@ -37,14 +37,21 @@ namespace FundooNoteContext
             services.AddTransient<IUserRL, UserRL>();
             services.AddTransient<IUserBL, UserBL>();
             services.AddTransient<Hash_password>();
+            services.AddTransient<INoteRL, NoteRL>();
+            services.AddTransient<INoteBL, NoteBL>();
 
             services.AddAuthentication(options =>
             {
                 options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
                 options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-            })
+                options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+            });
+            
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)    
             .AddJwtBearer(options =>
             {
+                options.SaveToken = true;
+                options.RequireHttpsMetadata = false;
                 options.TokenValidationParameters = new TokenValidationParameters
                 {
                     ValidateIssuer = true,
@@ -72,13 +79,15 @@ namespace FundooNoteContext
 
             app.UseRouting();
 
+            app.UseAuthentication();
+
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
             });
-            app.UseAuthentication();
+           
            // app.UseAuthorization();
         }
     }

@@ -22,7 +22,7 @@ namespace FundooNoteContext.Controllers
             var result=userBL.AddUserDetail(userModel);
             if(result != null)
             {
-                return Ok(new { Success = true, Message = "added sucessfully", Data = result });
+                return Ok(new { Success = true, Message = "Added Sucessfully", Data = result });
             }
             else
             {
@@ -50,7 +50,7 @@ namespace FundooNoteContext.Controllers
             var result = userBL.UserLogin(userlogin);
             if (result != null)
             {
-                return Ok(new { Success = true, Message = "added sucessfully", Data = result });
+                return Ok(new { Success = true, Message = "Login sucessfully", Data = result });
             }
             else
             {
