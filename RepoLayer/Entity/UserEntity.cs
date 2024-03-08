@@ -5,7 +5,6 @@ namespace RepoLayer.Entity
 {
     public class UserEntity
     {
-
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int id { get; set; }

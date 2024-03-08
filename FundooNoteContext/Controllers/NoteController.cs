@@ -59,14 +59,15 @@ namespace FundooNoteContext.Controllers
         }
         [HttpDelete("DeleteNote")]
         [Authorize]
-        public IActionResult DeleteNote(NoteModel noteModel,  int _userID) {
-            
-            string userID=User.FindFirstValue(ClaimTypes.NameIdentifier);
+        public IActionResult DeleteNote(NoteModel noteModel, int _userID)
+        {
+
+            string userID = User.FindFirstValue(ClaimTypes.NameIdentifier);
             int __userID = Convert.ToInt32(userID);
-            var result= _noteBL.DeleteNote(noteModel, __userID);
+            var result = _noteBL.DeleteNote(noteModel, __userID);
             if (result != null)
             {
-                return Ok(new { Success = true, Message="Deleted Successfully",Data= result});
+                return Ok(new { Success = true, Message = "Deleted Successfully", Data = result });
             }
             else
             {
@@ -75,15 +76,16 @@ namespace FundooNoteContext.Controllers
         }
         [HttpGet("ViewNotes")]
         [Authorize]
-        public IActionResult ViewNote(NoteModel noteModel, int _userID) {
+        public IActionResult ViewNote(NoteModel noteModel, int _userID)
+        {
 
             string userID = User.FindFirstValue(ClaimTypes.NameIdentifier);
             int __userID = Convert.ToInt32(userID);
-            var result=_noteBL.ViewNote(noteModel, __userID);
+            var result = _noteBL.ViewNote(noteModel, __userID);
 
             if (result != null)
             {
-                return Ok(new { Success = true, Message="Sucess",Data= result});
+                return Ok(new { Success = true, Message = "Sucess", Data = result });
             }
             else
             {

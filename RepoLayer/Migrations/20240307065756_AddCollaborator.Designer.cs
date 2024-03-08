@@ -2,15 +2,17 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RepoLayer.Context;
 
 namespace RepoLayer.Migrations
 {
     [DbContext(typeof(FundoonoteContext1))]
-    partial class FundoonoteContext1ModelSnapshot : ModelSnapshot
+    [Migration("20240307065756_AddCollaborator")]
+    partial class AddCollaborator
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -31,8 +33,14 @@ namespace RepoLayer.Migrations
                     b.Property<int>("NoteId")
                         .HasColumnType("int");
 
+                    b.Property<string>("Notes")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("UserID")
                         .HasColumnType("int");
+
+                    b.Property<string>("Users")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("CollaboratorID");
 

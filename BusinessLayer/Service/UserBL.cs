@@ -1,16 +1,10 @@
 ﻿using BusinessLayer.Interface;
-using Microsoft.AspNetCore.Identity;
 using ModelLayer;
-using RepoLayer.Entity;
 using RepoLayer.Interface;
-using RepoLayer.Service;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace BusinessLayer.Service
 {
-    public class UserBL :IUserBL
+    public class UserBL : IUserBL
     {
         public readonly IUserRL userRL;
 
@@ -19,7 +13,8 @@ namespace BusinessLayer.Service
             this.userRL = userRL;
         }
 
-        public UserEntity AddUserDetail(UserModel userModel)
+        //public UserEntity AddUserDetail(UserModel userModel)
+        public UserModel AddUserDetail(UserModel userModel)
         {
             return userRL.AddUserDetail(userModel);
         }
@@ -28,13 +23,9 @@ namespace BusinessLayer.Service
          {
              return userRL.ViewDetail(Email, Password);
          }*/
-
         public string UserLogin(UserLogin userLogin)
         {
             return userRL.UserLogin(userLogin);
         }
-       
-
-
     }
 }

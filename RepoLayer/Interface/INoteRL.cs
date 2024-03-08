@@ -8,8 +8,9 @@ namespace RepoLayer.Interface
 {
     public interface INoteRL
     {
-        public NoteEntity AddNote(NoteModel noteModel, int _userID);
+        //public NoteEntity AddNote(NoteModel noteModel, int _userID);
         // public NoteEntity UpdateNote(NoteModel notemodel);
+        public NoteModel AddNote(NoteModel noteModel, int _userID);
 
         public NoteEntity EditNote1(EditNote editNote, int _UserID);
 

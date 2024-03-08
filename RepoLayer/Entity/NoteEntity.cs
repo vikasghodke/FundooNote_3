@@ -11,8 +11,8 @@ namespace RepoLayer.Entity
         public int NoteId { get; set; }
         public string Title { get; set; }
         public string Color { get; set; }
-        public bool IsDeleted { get; set; }=false;
-        public bool IsArchived { get; set; }=false;
+        public bool IsDeleted { get; set; } = false;
+        public bool IsArchived { get; set; } = false;
         [JsonIgnore]
         public virtual UserEntity User { get; set; }
 

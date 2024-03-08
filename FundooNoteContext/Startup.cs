@@ -39,6 +39,8 @@ namespace FundooNoteContext
             services.AddTransient<Hash_password>();
             services.AddTransient<INoteRL, NoteRL>();
             services.AddTransient<INoteBL, NoteBL>();
+            services.AddTransient<ICollaboratorBL, CollaboratorBL>();
+            services.AddTransient<ICollaboratorRL, CollaboratorRL>();
 
             services.AddAuthentication(options =>
             {
