@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using ModelLayer;
+using Newtonsoft.Json.Linq;
 using RepoLayer.Context;
 using RepoLayer.Entity;
 using RepoLayer.Hashing;
@@ -9,6 +10,7 @@ using RepoLayer.JwtToken;
 using System;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
+using System.Net;
 using System.Security.Claims;
 using System.Text;
 
@@ -80,9 +82,36 @@ namespace RepoLayer.Service
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
 
-    }
+        public string ForgetPassword(Reset_PasswordModel reset_PasswordModel)
+        {
+            UserEntity valid=_fundoonoteContext1.Users.FirstOrDefault(e=>e.Email==reset_PasswordModel.Email);
+            Reset_Pas_Token token = new Reset_Pas_Token(_config);
+            if(valid!=null)
+            {
+                return token.GenerateToken1(valid);
+            }
+            return null;       
+        }
+        public string GenereateToken1(string email)
+        {
+            var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Jwt:Key"]));
+            var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
+            var claims = new[]
+            {
+             new Claim(ClaimTypes.Email, email)
+            };
+            var token=new JwtSecurityToken(_config["Jwt:Issuer"],
+                _config["Jwt:Issuer"],
+              claims,
+              expires: DateTime.Now.AddMinutes(15),
+              signingCredentials: credentials);
+            return new JwtSecurityTokenHandler().WriteToken(token);
 
+        }
+    }
 }
+
+
 
 
 

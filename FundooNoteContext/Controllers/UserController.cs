@@ -1,7 +1,9 @@
 ﻿using BusinessLayer.Interface;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ModelLayer;
+using System.Security.Claims;
 
 namespace FundooNoteContext.Controllers
 {
@@ -57,6 +59,14 @@ namespace FundooNoteContext.Controllers
                 return BadRequest(new { Success = false, Message = "something wet wrong" });
             }
         }
+       /* [HttpPost("ForgetPass")]
+        [Authorize]
+        public IActionResult ForgetPassword(Reset_PasswordModel resetPasswordModel)
+        {
+            var result=userBL.Reset
+        }
+
+        }*/
 
 
     }

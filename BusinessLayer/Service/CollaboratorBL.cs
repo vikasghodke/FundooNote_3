@@ -17,10 +17,15 @@ namespace BusinessLayer.Service
         {
             return collaboratorRL.AddCollab(collaboratorModel, _userID);   
         }
-        public List<CollaboratorEntity> ViewCollab(int _userID,int _noteID)
+        public List<string> ViewCollab(int _userID, int _noteID)
         {
             return collaboratorRL.ViewCollab( _userID, _noteID);
         }
-        
+        public bool RemoveCollab(int _userID,int _noteID)
+        {
+            return collaboratorRL.RemoveCollab( _userID, _noteID);
+        }
+
+
     }
 }

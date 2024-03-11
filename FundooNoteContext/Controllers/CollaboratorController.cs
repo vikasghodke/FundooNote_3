@@ -1,7 +1,11 @@
 ﻿using BusinessLayer.Interface;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using ModelLayer;
+using RepoLayer.Entity;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Security.Claims;
 
 namespace FundooNoteContext.Controllers
@@ -35,14 +39,37 @@ namespace FundooNoteContext.Controllers
 
         }
         [HttpGet("View")]
-        public IActionResult ViewCollab(int _noteID)
+        [Authorize]
+        public List<string> ViewCollab(int _noteID)
+        {
+            string userID = User.FindFirstValue("UserID");
+            int _userID=Convert.ToInt32(userID);
+
+            var result = collaboratorBL.ViewCollab(_userID, _noteID);
+            //var response = new List<string>();
+            if(result!=null)
+            {
+                //return Ok(new { Success = true, Message = "Addes Successfully", result}); 
+                return result;
+            }
+            else
+            {
+                return new List<string>();
+
+            }
+           // return response;
+        }
+       
+        [HttpDelete("Delete")]
+        [Authorize]
+        public IActionResult RemoveCollab(int _noteID)
         {
             string userID = User.FindFirstValue(ClaimTypes.NameIdentifier);
             int _userID= Convert.ToInt32(userID);
-            var res1=collaboratorBL.ViewCollab( _userID, _noteID);
-            if(res1 != null  && res1.Count > 0)
+            var res1 = collaboratorBL.RemoveCollab(_userID, _noteID);
+            if(res1!=null)
             {
-                return Ok(new { Success = true, Message="Sucess", Data= res1 });
+                return Ok(new { Success = true, Message="Success", Data= res1 });
             }
             else
             {

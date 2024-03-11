@@ -8,5 +8,7 @@ namespace RepoLayer.Interface
         public UserModel AddUserDetail(UserModel userModel);
         //public UserEntity ViewDetail(string Email, string Password);
         public string UserLogin(UserLogin userLogin);
+
+        public string ForgetPassword(Reset_PasswordModel resetPasswordModel);
     }
 }

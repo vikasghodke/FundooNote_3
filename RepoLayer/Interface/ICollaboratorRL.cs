@@ -10,6 +10,8 @@ namespace RepoLayer.Interface
     {
         public CollaboratorModel AddCollab(CollaboratorModel collaboratorModel, int _userID);
 
-        public List<CollaboratorEntity> ViewCollab(int _userID,int _noteID);
+        public List<string> ViewCollab(int _userID, int _noteID);
+
+        public bool RemoveCollab(int _userID,int _noteID);
     }
 }

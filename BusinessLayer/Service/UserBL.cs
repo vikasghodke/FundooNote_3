@@ -27,5 +27,9 @@ namespace BusinessLayer.Service
         {
             return userRL.UserLogin(userLogin);
         }
+        public string ForgetPassword(Reset_PasswordModel resetPasswordModel)
+        {
+            return userRL.ForgetPassword(resetPasswordModel);
+        }
     }
 }
