@@ -21,9 +21,9 @@ namespace BusinessLayer.Service
         {
             return collaboratorRL.ViewCollab( _userID, _noteID);
         }
-        public bool RemoveCollab(int _userID,int _noteID)
+        public bool RemoveCollab(string email, int _userID, int _noteID)
         {
-            return collaboratorRL.RemoveCollab( _userID, _noteID);
+            return collaboratorRL.RemoveCollab(email, _userID, _noteID);
         }
 
 

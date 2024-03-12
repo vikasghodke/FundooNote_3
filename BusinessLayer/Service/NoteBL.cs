@@ -14,16 +14,12 @@ namespace BusinessLayer.Service
             this.noteRL = noteRL;
         }
 
-        //public NoteEntity AddNote(NoteModel noteModel,int _userID)
         public NoteModel AddNote(NoteModel noteModel, int _userID)
         {
             return noteRL.AddNote(noteModel, _userID);
 
         }
-        /* public NoteEntity UpdateNote(NoteModel noteModel)
-         {
-             return noteRL.UpdateNote(noteModel);
-         }*/
+        
         public NoteEntity EditNote1(EditNote editNote, int _userID)
         {
 
@@ -37,6 +33,10 @@ namespace BusinessLayer.Service
         public NoteEntity ViewNote(NoteModel notemodel, int _userID)
         {
             return noteRL.ViewNote(notemodel, _userID);
+        }
+        public bool Archive_UnArchive(int _userId, long _noteId)
+        {
+            return noteRL.Archive_UnArchive(_userId, _noteId);
         }
 
     }

@@ -1,4 +1,5 @@
 ﻿using BusinessLayer.Interface;
+using BusinessLayer.Service;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -18,11 +19,11 @@ namespace FundooNoteContext.Controllers
             this.userBL = userBL;
         }
 
-        [HttpPost]
+        [HttpPost("Add")]
         public IActionResult AddUserDetail(UserModel userModel)
         {
-            var result=userBL.AddUserDetail(userModel);
-            if(result != null)
+            var result = userBL.AddUserDetail(userModel);
+            if (result != null)
             {
                 return Ok(new { Success = true, Message = "Added Sucessfully", Data = result });
             }
@@ -59,15 +60,38 @@ namespace FundooNoteContext.Controllers
                 return BadRequest(new { Success = false, Message = "something wet wrong" });
             }
         }
-       /* [HttpPost("ForgetPass")]
+        [HttpPost("ForgetPass")]
         [Authorize]
         public IActionResult ForgetPassword(Reset_PasswordModel resetPasswordModel)
         {
-            var result=userBL.Reset
+            var result=userBL.ForgetPassword(resetPasswordModel);
+            if(result!= null)
+            {
+                return Ok(new { Success = true, Message="Send SUccessfully", Data= result });   
+            }
+            else
+            {
+                return BadRequest(new { Success = false, Message = "Bad Request" });
+            }
         }
-
-        }*/
-
-
+        [HttpPut("Reset")]
+        [Authorize]
+        public IActionResult ResetPassword(Reset_PasswordModel reset_PasswordModel)
+        {
+            var result=userBL.ResetPassword(reset_PasswordModel);
+            if(result!= null)
+            {
+                return Ok(new { Success = true, Message="Reset Successfully", Data= result });
+            }
+            else
+            {
+                return BadRequest(new { Success = false, Message = "Something Went Wrong" });
+            }
+        }
     }
-}
+
+ }
+
+
+    
+

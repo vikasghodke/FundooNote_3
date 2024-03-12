@@ -27,30 +27,29 @@ namespace RepoLayer.Service
             _fundoonoteContext1.SaveChanges();
             return collaboratorModel;
         }
-        public List<string> ViewCollab( int _userID, int _noteID)
+        public List<string> ViewCollab(int _userID, int _noteID)
         {
-            var notes=_fundoonoteContext1.Notes.FirstOrDefault(e=>e.UserID==_userID && e.NoteId==_noteID);
-            if(notes!=null)
+            var notes = _fundoonoteContext1.Notes.FirstOrDefault(e => e.UserID == _userID && e.NoteId == _noteID);
+            if (notes != null)
             {
-                var collab=_fundoonoteContext1.Collab.Where(e=>e.UserID==_userID && e.NoteId== _noteID).Select(e=>e.CollaboratorEmail).ToList();
+                var collab = _fundoonoteContext1.Collab.Where(e => e.UserID == _userID && e.NoteId == _noteID).Select(e => e.CollaboratorEmail).ToList();
                 return collab;
             }
             return null;
-            
+
         }
         public bool RemoveCollab(string email, int _userID, int _noteID)
         {
-            var check = _fundoonoteContext1.Notes.FirstOrDefault(e => e.UserID==_userID && e.NoteId == _noteID);
-            if(check!=null)
+            var check = _fundoonoteContext1.Notes.FirstOrDefault(e => e.UserID == _userID && e.NoteId == _noteID);
+            if (check != null)
             {
-                CollaboratorEntity collaboratorEntity=_fundoonoteContext1.Collab.FirstOrDefault(e=>e.UserID==_userID && e.NoteId==_noteID && e.CollaboratorEmail==email);
+                CollaboratorEntity collaboratorEntity = _fundoonoteContext1.Collab.FirstOrDefault(e => e.UserID == _userID && e.NoteId == _noteID && e.CollaboratorEmail == email);
                 _fundoonoteContext1.Collab.Remove(collaboratorEntity);
                 _fundoonoteContext1.SaveChanges();
             }
-            return null;
+            return false;
         }
-         
-        // return null;
+
     }
 }
 

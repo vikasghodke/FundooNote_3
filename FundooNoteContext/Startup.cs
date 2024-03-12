@@ -83,7 +83,7 @@ namespace FundooNoteContext
                      };
 
                  });*/
-/*            var key = Encoding.ASCII.GetBytes(Configuration["JwtSettings:Secret"]);
+            /*var key = Encoding.ASCII.GetBytes(Configuration["JwtSettings:Secret"]);
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(options =>
                 {

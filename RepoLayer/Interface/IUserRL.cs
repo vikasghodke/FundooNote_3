@@ -10,5 +10,6 @@ namespace RepoLayer.Interface
         public string UserLogin(UserLogin userLogin);
 
         public string ForgetPassword(Reset_PasswordModel resetPasswordModel);
+        public string ResetPassword(Reset_PasswordModel reset_PasswordModel);
     }
 }

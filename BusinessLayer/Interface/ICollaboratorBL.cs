@@ -9,6 +9,6 @@ namespace BusinessLayer.Interface
         public CollaboratorModel AddCollab(CollaboratorModel collaboratorModel,int _userID);
         public List<string> ViewCollab(int _userID, int _noteID);
 
-        public bool RemoveCollab(int _userID, int _noteID);
+        public bool RemoveCollab(string email, int _userID, int _noteID);
     }
 }

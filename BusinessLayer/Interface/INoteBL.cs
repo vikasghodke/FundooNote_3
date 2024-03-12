@@ -15,5 +15,8 @@ namespace BusinessLayer.Interface
         public NoteEntity DeleteNote(NoteModel noteModel, int _userID);
 
         public NoteEntity ViewNote(NoteModel noteModel, int _userID);
+
+        public bool Archive_UnArchive(int _userId, long _noteId);
+
     }
 }

@@ -1,6 +1,7 @@
 ﻿using BusinessLayer.Interface;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.VisualStudio.Web.CodeGeneration.Contracts.Messaging;
 using ModelLayer;
 using RepoLayer.Entity;
 using System;
@@ -59,22 +60,6 @@ namespace FundooNoteContext.Controllers
             }
            // return response;
         }
-       
-        [HttpDelete("Delete")]
-        [Authorize]
-        public IActionResult RemoveCollab(int _noteID)
-        {
-            string userID = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            int _userID= Convert.ToInt32(userID);
-            var res1 = collaboratorBL.RemoveCollab(_userID, _noteID);
-            if(res1!=null)
-            {
-                return Ok(new { Success = true, Message="Success", Data= res1 });
-            }
-            else
-            {
-                return BadRequest(new { Success = false, Message = "Something Went Wrong" });
-            }
-        }
     }
 }
+

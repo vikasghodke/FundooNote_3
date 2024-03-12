@@ -74,32 +74,27 @@ namespace RepoLayer.Service
             {
                 return null;
             }
-        }
+        } 
 
-        /* public NoteEntity UpdateNote(NoteModel noteModel, int _UserID)
-    {
-        //NoteEntity noteEntity=DbContext.(x=x.NoteID ==_noteID && x.UserID==_UserID)
-        NoteEntity noteEntity = _fundoonoteContext1.Notes.FirstOrDefault(x => x.UserID == _UserID);
-        if (noteEntity != null)
+        public bool Archive_UnArchive(int _userId, long _noteId)
         {
-            noteEntity.Title = noteModel.title;
-            noteEntity.Color = noteModel.color;
-            noteEntity.IsArchived = noteModel.IsArchived;
-            noteEntity.IsDeleted = noteModel.IsDeleted;
-            noteEntity.NoteId = noteModel.noteID;
-            //noteEntity.UserID = noteModel.UserID;
-
-            _fundoonoteContext1.Notes.Add(noteEntity);
-            _fundoonoteContext1.SaveChanges(true);
-
-            return noteEntity;
-        }
-        else
-        {
-            return null;
-        }*/
-        // return null;
-        // return noteEntity;
-        //}
+            NoteEntity noteEntity=_fundoonoteContext1.Notes.FirstOrDefault(e=>e.UserID == _userId && e.NoteId== _noteId);
+            if(noteEntity != null)
+            {
+                if(noteEntity.IsArchived!=true)
+                {
+                    noteEntity.IsArchived = false;
+                }
+                else
+                {
+                    noteEntity.IsArchived = true;
+                }
+                _fundoonoteContext1.SaveChanges();
+                return true;
+            }
+            
+            return true;
+        }       
+       
     }
 }

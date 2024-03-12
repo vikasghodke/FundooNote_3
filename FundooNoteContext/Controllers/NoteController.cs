@@ -1,4 +1,5 @@
 ﻿using BusinessLayer.Interface;
+using BusinessLayer.Service;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using ModelLayer;
@@ -92,24 +93,24 @@ namespace FundooNoteContext.Controllers
                 return BadRequest(new { Success = false, Message = "Something went wrong" });
             }
         }
+        [HttpPut("Arch_UnArc")]
+        [Authorize]
+        public IActionResult Archive_UnArchive(int _noteID)
+        {
+            string UserID = User.FindFirstValue("UserID");
+            int _userID = Convert.ToInt32(UserID);
 
+            bool Issucess = _noteBL.Archive_UnArchive(_userID, _noteID);
+            if (Issucess)
+            {
+                return Ok(new { Success = true, Message = "Sucess" ,Data=Issucess});
+            }
+            else
+            {
+                return BadRequest(new { Success = false, Message = "something went wrong" });
+            }
 
-
-
-
-        /* [HttpPut]
-         public IActionResult UpdateNote(NoteModel noteModel)
-         {
-             var result = _noteBL.UpdateNote(noteModel);
-             if (result != null)
-             {
-                 return Ok(new { Success = true, Message="Added Successfully",Data= result});
-             }
-             else
-             {
-                 return BadRequest(new { Success = false, Message = "Somethiong went wrong" });
-             }
-         }*/
+        }
 
     }
 
