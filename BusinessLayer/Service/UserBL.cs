@@ -1,6 +1,7 @@
 ﻿using BusinessLayer.Interface;
 using ModelLayer;
 using RepoLayer.Interface;
+using System.Threading.Tasks;
 
 namespace BusinessLayer.Service
 {
@@ -27,13 +28,17 @@ namespace BusinessLayer.Service
         {
             return userRL.UserLogin(userLogin);
         }
-        public string ForgetPassword(Reset_PasswordModel resetPasswordModel)
+       /* public string ForgetPassword(Reset_PasswordModel resetPasswordModel)
         {
             return userRL.ForgetPassword(resetPasswordModel);
-        }
-        public string ResetPassword(Reset_PasswordModel reset_PasswordModel)
+        }*/
+        public Task<string> ForgetPass(string Email)
         {
-            return userRL.ResetPassword(reset_PasswordModel);
+            return userRL.ForgetPass(Email);
+        }
+        public Task<string> ResetPassword(string Password1, int userID) 
+        {
+            return userRL.ResetPassword(Password1, userID);
         }
     }
 }

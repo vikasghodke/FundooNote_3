@@ -1,4 +1,5 @@
 ﻿using ModelLayer;
+using System.Threading.Tasks;
 
 namespace BusinessLayer.Interface
 {
@@ -9,8 +10,8 @@ namespace BusinessLayer.Interface
         //public UserEntity ViewDetail(string Email, string Password);
         public string UserLogin(UserLogin userLogin);
 
-        public string ForgetPassword(Reset_PasswordModel resetPasswordModel);
+        public Task<string> ForgetPass(string email);
 
-        public string ResetPassword(Reset_PasswordModel reset_PasswordModel);
+        public Task<string> ResetPassword(string Password1, int userID);
     }
 }

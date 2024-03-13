@@ -1,15 +1,22 @@
 ﻿using ModelLayer;
+using System.Threading.Tasks;
 
 namespace RepoLayer.Interface
 {
     public interface IUserRL
     {
-        //public UserEntity AddUserDetail(UserModel userModel);
+        
         public UserModel AddUserDetail(UserModel userModel);
-        //public UserEntity ViewDetail(string Email, string Password);
+        
         public string UserLogin(UserLogin userLogin);
 
-        public string ForgetPassword(Reset_PasswordModel resetPasswordModel);
-        public string ResetPassword(Reset_PasswordModel reset_PasswordModel);
+        public Task<string> ForgetPass(string Email);
+
+        public Task<string> ResetPassword(string Password1, int userID);
+
+
+
+        /* public string ForgetPassword(Reset_PasswordModel resetPasswordModel);
+        public string ResetPassword(Reset_PasswordModel reset_PasswordModel);*/
     }
 }

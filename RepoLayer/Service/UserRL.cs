@@ -12,6 +12,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Security.Claims;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace RepoLayer.Service
 {
@@ -20,15 +21,14 @@ namespace RepoLayer.Service
         private readonly FundoonoteContext1 _fundoonoteContext1;
         private readonly IConfiguration _config;
         private readonly Hash_password _hash_Password;
-        private readonly IEmailService _emailService;
+        
 
-        public UserRL(FundoonoteContext1 _fundoonoteContext1, IConfiguration config, Hash_password hash_Password, EmailSevice emailSevice)
+        public UserRL(FundoonoteContext1 _fundoonoteContext1, IConfiguration config, Hash_password hash_Password)
         {
             this._fundoonoteContext1 = _fundoonoteContext1;
             this._config = config;
             this._hash_Password = hash_Password;
-            this._emailService = emailSevice;
-
+            
         }
 
         // public UserEntity AddUserDetail(UserModel userModel)
@@ -82,112 +82,38 @@ namespace RepoLayer.Service
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
 
-        public string ForgetPass(string email)
+        public async Task<string> ForgetPass(string Email)
         {
-            UserEntity valid=_fundoonoteContext1.Users.FirstOrDefault(e=>e.Email== email);
+            var user=_fundoonoteContext1.Users.FirstOrDefault(e=>e.Email == Email);
             Jwt_Token token = new Jwt_Token(_config);
-            if (valid != null)
+            if (user!=null)
             {
-                return token.GenerateToken(valid);
-                string resetLink = "https://example.com/resetpassword?token=" + token;
-                _fundoonoteContext1.ForgetPass(token, resetLink);
-            else
-            {
-                return null;
-            }
-            
-        }
-        
+                string _token = token.GenerateTokenReset(Email, user.id);
 
-        
-       
+                var url= $"https://localhost:5001/api/Users/ForgetPass?token={_token}";
 
-
-
-
-
-
-
-
-        /* public string ForgetPassword(Reset_PasswordModel reset_PasswordModel)
-        {
-            UserEntity valid = _fundoonoteContext1.Users.FirstOrDefault(e => e.Email == reset_PasswordModel.Email);
-            Reset_Pas_Token token = new Reset_Pas_Token(_config);
-            if (valid != null)
-            {
-                return token.GenerateToken1(valid);
+                EmailService service=new EmailService();
+                await service.SendEmailAsync(Email, "Reset Password", url);
+                return "Ok"; 
             }
             return null;
-        }
-        public string GenereateToken1(string email)
+        } 
+        public async Task<string> ResetPassword(string Password1,int userID)
         {
-            var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Jwt:Key"]));
-            var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
-            var claims = new[]
+            var user=_fundoonoteContext1.Users.FirstOrDefault(e=>e.id==userID);
+            Jwt_Token token=new Jwt_Token(_config);
+            if(user!=null)
             {
-             new Claim(ClaimTypes.Email, email)
-            };
-            var token = new JwtSecurityToken(_config["Jwt:Issuer"],
-                _config["Jwt:Issuer"],
-              claims,
-              expires: DateTime.Now.AddMinutes(15),
-              signingCredentials: credentials);
-            return new JwtSecurityTokenHandler().WriteToken(token);
-
-        }*/
-        /*public string ResetPassword(Reset_PasswordModel reset_PasswordModel)
-        {
-            var value = _fundoonoteContext1.Users.FirstOrDefault(e => e.Email == reset_PasswordModel.Email);
-            Reset_Pas_Token toekn = new Reset_Pas_Token(_config);
-            if (value != null)
-            {
-                ResetPasswordEntity entity = new ResetPasswordEntity();
-                bool var = _hash_Password.VerifyPassword(reset_PasswordModel.Password, value.Password);
-                if (var)
-                {
-
-                    entity.Passwrod = reset_PasswordModel.Password;
-                    _fundoonoteContext1.SaveChanges();
-                    
-                }
-                //return value.Password;                
+                string result = _hash_Password.HashPassword(Password1);
+                user.Password=Password1;
+                _fundoonoteContext1.SaveChanges();
             }
-            //return value.Password;
-            return value.Password;
-            
-        }*/
-        /* public string ResetPassword(Reset_PasswordModel reset_PasswordModel)
-         {
-             var value = _fundoonoteContext1.Users.FirstOrDefault(e => e.Email == reset_PasswordModel.Email);
-             ResetPasswordEntity entity = new ResetPasswordEntity();
-             Reset_Pas_Token token1 = new Reset_Pas_Token(_config);
-             bool var = _hash_Password.VerifyPassword(reset_PasswordModel.Password, value.Password);
-             if (var)
-             {
-                 entity.Passwrod = reset_PasswordModel.Password;
-                 _fundoonoteContext1.SaveChanges();
-                 return token1.GenerateToken1(value);
-             }
-             return value.Password;
+            return Password1;
 
-         }*/
-        /* public string ResetPassword(Reset_PasswordModel reset_PasswordModel)
-         {
-             var user = _fundoonoteContext1.Users.FirstOrDefault(e => e.Email == reset_PasswordModel.Email);
-             bool var=_hash_Password(reset_PasswordModel.Password, user.Password);
-
-             if (user != null)
-             {
-                 ResetPasswordEntity entity = new ResetPasswordEntity();
-                 entity.Passwrod = reset_PasswordModel.Password;
-
-                 // _fundoonoteContext1.Users.Add(entity);
-                 _fundoonoteContext1.SaveChanges();
-
-             }
-             return user.Password;
-         }
- */
+             
+        }
+        
+       
     }
 }
 

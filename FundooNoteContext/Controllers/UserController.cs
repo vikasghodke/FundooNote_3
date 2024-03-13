@@ -3,8 +3,11 @@ using BusinessLayer.Service;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Protocols.OpenIdConnect;
+using Microsoft.VisualStudio.Web.CodeGeneration.Contracts.Messaging;
 using ModelLayer;
 using System.Security.Claims;
+using System.Threading.Tasks;
 
 namespace FundooNoteContext.Controllers
 {
@@ -12,6 +15,7 @@ namespace FundooNoteContext.Controllers
     [ApiController]
     public class UserController : ControllerBase
     {
+        private const string V = "not found";
         private readonly IUserBL userBL;
 
         public UserController(IUserBL userBL)
@@ -60,34 +64,24 @@ namespace FundooNoteContext.Controllers
                 return BadRequest(new { Success = false, Message = "something wet wrong" });
             }
         }
-        [HttpPost("ForgetPass")]
-        [Authorize]
-        public IActionResult ForgetPassword(Reset_PasswordModel resetPasswordModel)
+
+        [HttpPost]
+        [Route("ForgetPass")]
+        
+        public  Task<string> ForgetPass(string Email)
         {
-            var result=userBL.ForgetPassword(resetPasswordModel);
-            if(result!= null)
+            
+            var result =  userBL.ForgetPass(Email);
+            if (result != null)
             {
-                return Ok(new { Success = true, Message="Send SUccessfully", Data= result });   
+                return result;
             }
             else
             {
-                return BadRequest(new { Success = false, Message = "Bad Request" });
+                return null;
             }
-        }
-        [HttpPut("Reset")]
-        [Authorize]
-        public IActionResult ResetPassword(Reset_PasswordModel reset_PasswordModel)
-        {
-            var result=userBL.ResetPassword(reset_PasswordModel);
-            if(result!= null)
-            {
-                return Ok(new { Success = true, Message="Reset Successfully", Data= result });
-            }
-            else
-            {
-                return BadRequest(new { Success = false, Message = "Something Went Wrong" });
-            }
-        }
+
+        }                             
     }
 
  }
