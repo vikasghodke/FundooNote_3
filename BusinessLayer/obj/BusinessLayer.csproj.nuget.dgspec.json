@@ -73,7 +73,7 @@
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
-              "version": "[4.0.0, )"
+              "version": "[6.5.0, )"
             },
             "System.Security.Claims": {
               "target": "Package",
@@ -165,7 +165,7 @@
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
-              "version": "[4.0.0, )"
+              "version": "[6.5.0, )"
             },
             "System.Security.Claims": {
               "target": "Package",
@@ -263,7 +263,7 @@
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
-              "version": "[4.0.0, )"
+              "version": "[6.5.0, )"
             },
             "System.Security.Claims": {
               "target": "Package",

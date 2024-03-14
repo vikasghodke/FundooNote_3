@@ -144,11 +144,8 @@ C:\C#\FundooNoteContext\FundooNoteContext\bin\Debug\netcoreapp3.1\BusinessLayer.
 C:\C#\FundooNoteContext\FundooNoteContext\bin\Debug\netcoreapp3.1\BusinessLayer.pdb
 C:\C#\FundooNoteContext\FundooNoteContext\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.Internal.dll
 C:\C#\FundooNoteContext\FundooNoteContext\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
-C:\C#\FundooNoteContext\FundooNoteContext\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.JsonPatch.dll
-C:\C#\FundooNoteContext\FundooNoteContext\bin\Debug\netcoreapp3.1\Microsoft.DotNet.PlatformAbstractions.dll
-C:\C#\FundooNoteContext\FundooNoteContext\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyModel.dll
-C:\C#\FundooNoteContext\FundooNoteContext\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.dll
 C:\C#\FundooNoteContext\FundooNoteContext\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.Swagger.dll
 C:\C#\FundooNoteContext\FundooNoteContext\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\C#\FundooNoteContext\FundooNoteContext\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerUI.dll
 C:\C#\FundooNoteContext\FundooNoteContext\obj\Debug\netcoreapp3.1\FundooNoteContext.MvcApplicationPartsAssemblyInfo.cs
+C:\C#\FundooNoteContext\FundooNoteContext\bin\Debug\netcoreapp3.1\Microsoft.OpenApi.dll

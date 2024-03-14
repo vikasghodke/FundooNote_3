@@ -11,6 +11,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using RepoLayer.Context;
+using Swashbuckle.AspNetCore.Swagger;
 using RepoLayer.Hashing;
 using RepoLayer.Interface;
 using RepoLayer.Service;
@@ -32,6 +33,10 @@ namespace FundooNoteContext
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+           // services.AddControllers();
+
+           
+
             services.AddControllers();
             services.AddDbContext<FundoonoteContext1>(x => x.UseSqlServer(Configuration["ConnectionStrings:FundooNoteC"]));
             services.AddTransient<IUserRL, UserRL>();
@@ -41,6 +46,8 @@ namespace FundooNoteContext
             services.AddTransient<INoteBL, NoteBL>();
             services.AddTransient<ICollaboratorBL, CollaboratorBL>();
             services.AddTransient<ICollaboratorRL, CollaboratorRL>();
+            services.AddSwaggerGen();
+
 
             services.AddAuthentication(options =>
             {
@@ -48,7 +55,8 @@ namespace FundooNoteContext
                 options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
                 options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
             });
-            
+          
+
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)    
             .AddJwtBearer(options =>
             {
@@ -64,48 +72,20 @@ namespace FundooNoteContext
                     ValidAudience = Configuration["Jwt:Audience"],
                     IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["Jwt:Key"]))
                 };
+
+
+
             });
+           
 
-            /* services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-                 .AddJwtBearer(options =>
-                 {
-                     options.SaveToken = true;
-                     options.RequireHttpsMetadata = true;
-                     options.TokenValidationParameters = new TokenValidationParameters
-                     {
-                         ValidateIssuer = true,
-                         ValidateAudience = true,
-                         ValidateLifetime = true,
-                         ValidateIssuerSigningKey = true,
-                         ValidIssuer = Configuration["Jwt:Issuer"],
-                         ValidAudience = Configuration["Jwt:Audience"],
-                         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["Jwt:Key"]))
-                     };
 
-                 });*/
-            /*var key = Encoding.ASCII.GetBytes(Configuration["JwtSettings:Secret"]);
-            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-                .AddJwtBearer(options =>
-                {
-                    options.SaveToken = true;
-                    options.RequireHttpsMetadata = true;
-                    options.TokenValidationParameters = new TokenValidationParameters
-                    {
-                        ValidateIssuer = true,
-                        ValidateAudience = true,
-                        ValidateLifetime = true,
-                        ValidIssuer = Configuration["Jwt:Issuer"],
-                        ValidAudience = Configuration["Jwt:Audience"],
-                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["Jwt:Key"]))
-                    };
-                });*/
         }
-
-
-
-                // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-                public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+               
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            
+           
+            
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -123,8 +103,14 @@ namespace FundooNoteContext
             {
                 endpoints.MapControllers();
             });
-           
-           // app.UseAuthorization();
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "API V1");
+            });
+
+            // app.UseAuthorization();
         }
     }
 }

@@ -50,7 +50,7 @@ namespace RepoLayer.Service
         {
             //UserEntity valid = null;
 
-            UserEntity valid = _fundoonoteContext1.Users.FirstOrDefault(e => e.Email == userLogin.Email);
+            UserEntity valid = _fundoonoteContext1.Users.FirstOrDefault(e => e.Email == userLogin.Email );
             Jwt_Token token = new Jwt_Token(_config);
             if (valid != null)
             {
@@ -61,7 +61,6 @@ namespace RepoLayer.Service
                     return token.GenerateToken(valid);
                 }
 
-                return null;
             }
             return null;
         }
@@ -105,7 +104,7 @@ namespace RepoLayer.Service
             if(user!=null)
             {
                 string result = _hash_Password.HashPassword(Password1);
-                user.Password=Password1;
+                user.Password = result;
                 _fundoonoteContext1.SaveChanges();
             }
             return Password1;
