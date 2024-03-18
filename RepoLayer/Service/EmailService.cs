@@ -17,7 +17,7 @@ namespace RepoLayer.Service
             smtpClient = new SmtpClient("smtp.gmail.com")
             {
                 Port = 587,
-                Credentials = new NetworkCredential("YourPCMail@gmail.com", "Mail Password"),
+                Credentials = new NetworkCredential("vikasghodke468@gmail.com", "ltfi jgbg dzjx jqlq"),
 
                 EnableSsl = true
 
@@ -25,7 +25,7 @@ namespace RepoLayer.Service
         }
         public async Task SendEmailAsync(string to, string subject, string body)
         {
-            var mailMessage = new MailMessage("YourPCMail@gmail.com", to, subject, body)
+            var mailMessage = new MailMessage("vikasghodke468@gmail.com", to, subject, body)
             {
                 IsBodyHtml = false
             };

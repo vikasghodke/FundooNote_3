@@ -1,12 +1,9 @@
 ﻿using BusinessLayer.Interface;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.VisualStudio.Web.CodeGeneration.Contracts.Messaging;
 using ModelLayer;
-using RepoLayer.Entity;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Security.Claims;
 
 namespace FundooNoteContext.Controllers
@@ -27,8 +24,8 @@ namespace FundooNoteContext.Controllers
         public IActionResult AddCollab(CollaboratorModel collaboratorModel)
         {
             string userID = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            int _userID= Convert.ToInt32(userID);
-            var result = collaboratorBL.AddCollab(collaboratorModel,_userID);
+            int _userID = Convert.ToInt32(userID);
+            var result = collaboratorBL.AddCollab(collaboratorModel, _userID);
             if (result != null)
             {
                 return Ok(new { Success = true, Message = "Addes Successfully", Data = result });
@@ -44,11 +41,11 @@ namespace FundooNoteContext.Controllers
         public List<string> ViewCollab(int _noteID)
         {
             string userID = User.FindFirstValue("UserID");
-            int _userID=Convert.ToInt32(userID);
+            int _userID = Convert.ToInt32(userID);
 
             var result = collaboratorBL.ViewCollab(_userID, _noteID);
             //var response = new List<string>();
-            if(result!=null)
+            if (result != null)
             {
                 //return Ok(new { Success = true, Message = "Addes Successfully", result}); 
                 return result;
@@ -58,7 +55,7 @@ namespace FundooNoteContext.Controllers
                 return new List<string>();
 
             }
-           // return response;
+            // return response;
         }
     }
 }

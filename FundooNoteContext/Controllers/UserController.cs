@@ -1,14 +1,8 @@
 ﻿using BusinessLayer.Interface;
-using BusinessLayer.Service;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
-using Microsoft.IdentityModel.Protocols.OpenIdConnect;
 using Microsoft.IdentityModel.Tokens;
-using Microsoft.VisualStudio.Web.CodeGeneration.Contracts.Messaging;
 using ModelLayer;
-using RepoLayer.JwtToken;
 using System;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
@@ -75,11 +69,11 @@ namespace FundooNoteContext.Controllers
 
         [HttpPost]
         [Route("ForgetPass")]
-        
-        public  Task<string> ForgetPass(string Email)
+
+        public Task<string> ForgetPass(string Email)
         {
-            
-            var result =  userBL.ForgetPass(Email);
+
+            var result = userBL.ForgetPass(Email);
             if (result != null)
             {
                 return result;
@@ -97,24 +91,24 @@ namespace FundooNoteContext.Controllers
             var validationParameters = new TokenValidationParameters
             {
                 ValidateIssuer = true,
-                ValidateAudience=true,
-                ValidateLifetime=true,
-                ValidateIssuerSigningKey=true,
+                ValidateAudience = true,
+                ValidateLifetime = true,
+                ValidateIssuerSigningKey = true,
                 ValidIssuer = _config["Jwt:Issuer"],
                 ValidAudience = _config["Jwt:Audience"],
                 IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Jwt:Key"]))
             };
 
             SecurityToken validatedToekn;
-            var principle=handler.ValidateToken(token, validationParameters, out validatedToekn);
+            var principle = handler.ValidateToken(token, validationParameters, out validatedToekn);
             var userID = principle.FindFirstValue(ClaimTypes.NameIdentifier);
-            int _userID=Convert.ToInt32(userID);
-            var result=userBL.ResetPassword(Password1 , _userID);
+            int _userID = Convert.ToInt32(userID);
+            var result = userBL.ResetPassword(Password1, _userID);
 
-            if(result!=null)
+            if (result != null)
             {
-                return result;       
-                
+                return result;
+
             }
             else
             {
@@ -125,8 +119,8 @@ namespace FundooNoteContext.Controllers
 
     }
 
- }
+}
 
 
-    
+
 

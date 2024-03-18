@@ -3,15 +3,12 @@ using BusinessLayer.Service;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using RepoLayer.Context;
-using Swashbuckle.AspNetCore.Swagger;
 using RepoLayer.Hashing;
 using RepoLayer.Interface;
 using RepoLayer.Service;
@@ -25,17 +22,13 @@ namespace FundooNoteContext
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
-          
-        }
 
+        }
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-           // services.AddControllers();
-
-           
 
             services.AddControllers();
             services.AddDbContext<FundoonoteContext1>(x => x.UseSqlServer(Configuration["ConnectionStrings:FundooNoteC"]));
@@ -48,6 +41,11 @@ namespace FundooNoteContext
             services.AddTransient<ICollaboratorRL, CollaboratorRL>();
             services.AddSwaggerGen();
 
+            services.AddStackExchangeRedisCache(redisOptions =>
+            {
+                string connection = Configuration.GetConnectionString("Redis");
+                redisOptions.Configuration = connection;
+            });
 
             services.AddAuthentication(options =>
             {
@@ -55,9 +53,9 @@ namespace FundooNoteContext
                 options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
                 options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
             });
-          
 
-            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)    
+
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             .AddJwtBearer(options =>
             {
                 options.SaveToken = true;
@@ -72,20 +70,10 @@ namespace FundooNoteContext
                     ValidAudience = Configuration["Jwt:Audience"],
                     IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["Jwt:Key"]))
                 };
-
-
-
             });
-           
-
-
         }
-               
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            
-           
-            
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

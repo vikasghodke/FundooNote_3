@@ -10,13 +10,13 @@ namespace RepoLayer.Interface
     {
         //public NoteEntity AddNote(NoteModel noteModel, int _userID);
         // public NoteEntity UpdateNote(NoteModel notemodel);
-        public NoteModel AddNote(NoteModel noteModel, int _userID);
+        public NoteEntity AddNote(NoteModel noteModel, int _uerID);
 
-        public NoteEntity EditNote1(EditNote editNote, int _UserID);
+        public NoteEntity EditNote1(EditNote editNote, int _noteID);
 
-        public NoteEntity DeleteNote(NoteModel noteModel, int _userID);
+        public NoteEntity DeleteNote(int _noteID, int _userID);
 
-        public NoteEntity ViewNote(NoteModel noteModel, int _userID);
+        public NoteEntity ViewNote(int _noteID, int _userID);
         public bool Archive_UnArchive(int _userId, long _noteId);
 
     }

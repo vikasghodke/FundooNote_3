@@ -149,3 +149,7 @@ C:\C#\FundooNoteContext\FundooNoteContext\bin\Debug\netcoreapp3.1\Swashbuckle.As
 C:\C#\FundooNoteContext\FundooNoteContext\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerUI.dll
 C:\C#\FundooNoteContext\FundooNoteContext\obj\Debug\netcoreapp3.1\FundooNoteContext.MvcApplicationPartsAssemblyInfo.cs
 C:\C#\FundooNoteContext\FundooNoteContext\bin\Debug\netcoreapp3.1\Microsoft.OpenApi.dll
+C:\C#\FundooNoteContext\FundooNoteContext\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.StackExchangeRedis.dll
+C:\C#\FundooNoteContext\FundooNoteContext\bin\Debug\netcoreapp3.1\Pipelines.Sockets.Unofficial.dll
+C:\C#\FundooNoteContext\FundooNoteContext\bin\Debug\netcoreapp3.1\StackExchange.Redis.dll
+C:\C#\FundooNoteContext\FundooNoteContext\bin\Debug\netcoreapp3.1\System.IO.Pipelines.dll
