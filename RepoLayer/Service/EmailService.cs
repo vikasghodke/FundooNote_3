@@ -17,7 +17,7 @@ namespace RepoLayer.Service
             smtpClient = new SmtpClient("smtp.gmail.com")
             {
                 Port = 587,
-                Credentials = new NetworkCredential("vikasghodke468@gmail.com", "ltfi jgbg dzjx jqlq"),
+                Credentials = new NetworkCredential("EmailID", "Password"),
 
                 EnableSsl = true
 
