@@ -153,3 +153,4 @@ C:\C#\FundooNoteContext\FundooNoteContext\bin\Debug\netcoreapp3.1\Microsoft.Exte
 C:\C#\FundooNoteContext\FundooNoteContext\bin\Debug\netcoreapp3.1\Pipelines.Sockets.Unofficial.dll
 C:\C#\FundooNoteContext\FundooNoteContext\bin\Debug\netcoreapp3.1\StackExchange.Redis.dll
 C:\C#\FundooNoteContext\FundooNoteContext\bin\Debug\netcoreapp3.1\System.IO.Pipelines.dll
+C:\C#\FundooNoteContext\FundooNoteContext\bin\Debug\netcoreapp3.1\RabbitMQ.Client.dll

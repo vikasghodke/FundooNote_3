@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Caching.Distributed;
 using ModelLayer;
 using RepoLayer.Entity;
+using RepoLayer.Interface;
 using System;
 using System.Security.Claims;
 using System.Text.Json;
@@ -19,12 +20,14 @@ namespace FundooNoteContext.Controllers
     {
         private readonly INoteBL _noteBL;
         private readonly IDistributedCache _distributedCache1;
+        private readonly IRabitMQProducer _rabbitMQProducer;
        
 
-        public NoteController(INoteBL noteBL, IDistributedCache distributedCache1)
+        public NoteController(INoteBL noteBL, IDistributedCache distributedCache1,IRabitMQProducer rabitMQProducer)
         {
             this._noteBL = noteBL;
             this._distributedCache1 = distributedCache1;
+            this._rabbitMQProducer = rabitMQProducer;
              
         }
 
@@ -38,6 +41,8 @@ namespace FundooNoteContext.Controllers
             int _userID = Convert.ToInt32(userID);
 
             var result = _noteBL.AddNote(noteModel, _userID);
+
+            _rabbitMQProducer.SendProductMessage(result);
 
             //var _distributedCache1.SetString(Convert.ToString(note.NoteId), JsonSerializer.Serialize(noteModel));
             //var _distributedCache1.SetString(Convert.ToString(result));

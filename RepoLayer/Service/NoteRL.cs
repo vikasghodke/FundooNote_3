@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Caching.Distributed;
 using ModelLayer;
+using RabbitMQ.Client;
 using RepoLayer.Context;
 using RepoLayer.Entity;
 using RepoLayer.Interface;
@@ -8,23 +9,26 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.Json;
 
+
 namespace RepoLayer.Service
 {
     public class NoteRL : INoteRL
     {
         private readonly FundoonoteContext1 _fundoonoteContext1;
         private readonly IDistributedCache _distributedCache1;
+        private readonly ConnectionFactory _connectionFactory;
 
         public NoteRL(FundoonoteContext1 _fundoonoteContext1, IDistributedCache distributedCache1)
         {
             this._fundoonoteContext1 = _fundoonoteContext1;
             this._distributedCache1 = distributedCache1;
+            
         }
 
         // public NoteEntity AddNote(NoteModel noteModel,int _userID)
         public NoteEntity AddNote(NoteModel noteModel,int _userID)
         {
-            NoteEntity note = new NoteEntity();
+            NoteEntity note = new NoteEntity(); 
             note.Title = noteModel.title;
             note.Color = noteModel.color;
             note.IsArchived = noteModel.IsArchived;

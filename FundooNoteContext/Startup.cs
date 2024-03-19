@@ -39,6 +39,7 @@ namespace FundooNoteContext
             services.AddTransient<INoteBL, NoteBL>();
             services.AddTransient<ICollaboratorBL, CollaboratorBL>();
             services.AddTransient<ICollaboratorRL, CollaboratorRL>();
+            services.AddTransient<IRabitMQProducer, RabitMQProducer>();
             services.AddSwaggerGen();
 
             services.AddStackExchangeRedisCache(redisOptions =>

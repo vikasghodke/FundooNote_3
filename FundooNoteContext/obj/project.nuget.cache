@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "tUFbR29L0Ra0LTXZ06u62jQ6Ap5ONfQwxcXFYXPvzWVXisEcjwXSrfF5mM76PR+oh4PPXGF+tVhaZsssF2YhlA==",
+  "dgSpecHash": "nfGp+7Q2LQgxDLu6ywseI+si+i34gonqVeNQBhOQENpjv7bx32DpthqcSSzFJxxtpRv7a3MYy+1UAfpknppEFw==",
   "success": true,
   "projectFilePath": "C:\\C#\\FundooNoteContext\\FundooNoteContext\\FundooNoteContext.csproj",
   "expectedPackageFiles": [
@@ -64,6 +64,7 @@
     "C:\\Users\\VIKAS GHODKE\\.nuget\\packages\\newtonsoft.json\\11.0.2\\newtonsoft.json.11.0.2.nupkg.sha512",
     "C:\\Users\\VIKAS GHODKE\\.nuget\\packages\\nuget.frameworks\\4.7.0\\nuget.frameworks.4.7.0.nupkg.sha512",
     "C:\\Users\\VIKAS GHODKE\\.nuget\\packages\\pipelines.sockets.unofficial\\2.2.8\\pipelines.sockets.unofficial.2.2.8.nupkg.sha512",
+    "C:\\Users\\VIKAS GHODKE\\.nuget\\packages\\rabbitmq.client\\3.6.9\\rabbitmq.client.3.6.9.nupkg.sha512",
     "C:\\Users\\VIKAS GHODKE\\.nuget\\packages\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
     "C:\\Users\\VIKAS GHODKE\\.nuget\\packages\\runtime.fedora.23-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.fedora.23-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
     "C:\\Users\\VIKAS GHODKE\\.nuget\\packages\\runtime.fedora.24-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.fedora.24-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
@@ -179,5 +180,16 @@
     "C:\\Users\\VIKAS GHODKE\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
     "C:\\Users\\VIKAS GHODKE\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'RabbitMQ.Client 3.6.9' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.",
+      "libraryId": "RabbitMQ.Client",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v3.1"
+      ]
+    }
+  ]
 }
